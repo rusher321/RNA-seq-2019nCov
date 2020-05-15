@@ -8,7 +8,8 @@ RNA-seq pipeline
 
 ![Image-w40](https://github.com/rusher321/RNA-seq-2019nCov/blob/master/pipeline.png)
 
-<div align=center><img width="150" height="150" src=https://github.com/rusher321/RNA-seq-2019nCov/blob/master/pipeline.png"/></div>
+<div align=center><img width="150" height="150" src="https://github.com/rusher321/RNA-seq-2019nCov/blob/master/pipeline.png"/></div>
+ 
 ## Requirements:
 python: vXXXX   
   
