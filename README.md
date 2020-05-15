@@ -6,7 +6,7 @@ RNA-seq pipeline
  
  >The remaining non-human non-rRNA reads were processed by **Kraken 2X v2.08 beta**. Non-viral microbial taxon assignment of the non-human non-rRNA reads was performed using clade-specific marker gene-based **MetaPhAln2** with the default parameter options for non-viral microbial composition(--ignore-viruses).
 
-![Image aling="center"](https://github.com/rusher321/RNA-seq-2019nCov/blob/master/pipeline.png)
+![Image align="center"](https://github.com/rusher321/RNA-seq-2019nCov/blob/master/pipeline.png)
 
 ## Requirements:
 python: vXXXX   
