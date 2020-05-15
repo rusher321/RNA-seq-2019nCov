@@ -14,3 +14,17 @@ python: vXXXX
 
 Software for This pipeline:  
 * Kraken v1.1 (https://github.com/DerrickWood/kraken)  
+
+## Installation
+```
+git clone https://github.com/rusher321/RNA-seq-2019nCov.git
+```
+Notes: The above dependent software needs to be installed separately according to their instructions. After installing, the users should edit the input.config file, and change the software path to your own path.
+
+## Usage
+### 1.Build the index for database
+
+### 2.Run the pipeline.
+
+
+
