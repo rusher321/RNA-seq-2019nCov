@@ -1,0 +1,48 @@
+__default__:
+    queue: "st.q"
+    project: "P18Z10200N0274"
+    workdir: "/hwfssz1/ST_META/F16ZQSB1SY2760_PGM_ZHZ/Users/renhuahui/Virus/snakemake"
+    mem: "1G"
+    cores: 1
+
+trimming_fastp:
+    mem: "1G"
+    cores: 8
+    output: "assay/cluster_logs/{rule}.{wildcards.sample}.o"
+    error: "assay/cluster_logs/{rule}.{wildcards.sample}.e"
+
+multiqc_fastp:
+    mem: "128M"
+    output: "assay/cluster_logs/{rule}.o"
+    error: "assay/cluster_logs/{rule}.e"
+
+trimming_report:
+    mem: "512M"
+    cores: 4
+    output: "assay/cluster_logs/{rule}.{wildcards.sample}.o"
+    error: "assay/cluster_logs/{rule}.{wildcards.sample}.e"
+
+
+merge_trimming_report:
+    mem: "512M"
+    cores: 8
+    output: "assay/cluster_logs/{rule}.o"
+    error: "assay/cluster_logs/{rule}.e"
+
+rmrRna:
+    mem: "1G"
+    cores: 4
+    output: "assay/cluster_logs/{rule}.0"
+    error: "assay/cluster_logs/{rule}.e"
+
+kraken2:
+   mem: "8G"
+   cores: 8
+   output: "assay/cluster_logs/{rule}.o"
+   error: "assay/cluster_logs/{rule}.e"
+
+bracken:
+   mem: "512M"
+   cores: 1
+   output: "assay/cluster_logs/{rule}.o"
+   error: "assay/cluster_logs/{rule}.e"

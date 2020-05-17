@@ -1,0 +1,64 @@
+params:
+  reads_format: "fastq"
+  reads_layout: "pe"
+  samples: "samples.tsv.test"
+  src: "/hwfssz1/ST_META/F16ZQSB1SY2760_PGM_ZHZ/Users/renhuahui/Virus/snakemake/src/"                                          
+
+  trimming:
+    fastp:
+        do: True
+        threads: 4
+        disable_adapter_trimming: True
+        use_slide_window: True
+        compression: 6
+        cut_front_window_size: 4
+        cut_front_mean_quality: 20
+        cut_tail_window_size: 4
+        cut_tail_mean_quality: 20
+        cut_right_window_size: 4
+        cut_right_mean_quality: 20
+        length_required: 51
+        n_base_limit: 5
+
+  report:
+    seqkit:
+        do: True
+        threads: 4
+        fq_encoding: "sanger"
+
+  rmrRna:
+    database: "/hwfssz5/ST_MCHRI/REPRO/PROJECT/P18Z10200N0183/xingyanru/Database/Individuality_ref/rRNA/SoapIndex/Human_rRNA_NCBI.fa.index"
+    database2: "/hwfssz5/ST_MCHRI/REPRO/PROJECT/P18Z10200N0183/xingyanru/Database/USCS/hg19/genome/HisatIndex/hg19"
+    database3: "/hwfssz5/ST_MCHRI/REPRO/PROJECT/P18Z10200N0183/xingyanru/Database/USCS/hg38/HisatIndex/hg38"
+    threads: 4
+
+  kraken2:
+    # database: "/hwfssz5/ST_INFECTION/AntibioticResistance/P18Z10200N0164_Resistance_PN/PMseq/User/liangtianzhu/sortware/karken2/kraken2-2.0.8-beta/db/minikraken2/minikraken2_v1_8GB"
+    database: "/ldfssz1/ST_INFECTION/2019-nCoV/liangtianzhu/Braken/braken/kraken2_db_v2/minikraken2_v2_8GB_201904_UPDATE"
+    threads: 8
+
+  bracken:
+    # database: "/hwfssz5/ST_INFECTION/AntibioticResistance/P18Z10200N0164_Resistance_PN/PMseq/User/liangtianzhu/sortware/karken2/kraken2-2.0.8-beta/db/minikraken2/minikraken2_v1_8GB"
+    database: "/ldfssz1/ST_INFECTION/2019-nCoV/liangtianzhu/Braken/braken/kraken2_db_v2/minikraken2_v2_8GB_201904_UPDATE"
+    threshold: 10
+
+  rmkrahost:
+    threads: 8
+    
+
+results:
+    trimming: "results/01.trimming"
+    report:
+        base_dir: "results/03.report"
+        trimming: "results/03.report/01.trimming"
+    rmrRna: "results/02.rmrRna"
+    kraken2: "results/03.kraken2"
+    bracken: "results/03.kraken2/bracken"
+    rmhost: "results/04.rmkrahost"
+
+logs:
+    trimming: assay/01.trimming/logs
+    rmrRna: assay/02.rmrRna/logs
+    kraken2: assay/03.kraken2/logs
+    bracken: assay/03.kraken2/bracken/log
+    rmkrahost: assay/04.kraken2/rmkrahost/log
