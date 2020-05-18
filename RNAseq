@@ -116,11 +116,11 @@ def main():
         help="run step",
     )
 
-    parser_workflow.add_argument(
-        "-t",
-        "--threads",
-        help="threads",
-    )
+    #parser_workflow.add_argument(
+    #    "-t",
+    #    "--threads",
+    #    help="threads",
+    #)
     parser_workflow._optionals.title = 'arguments'
     parser_workflow.set_defaults(func=workflow)
 
