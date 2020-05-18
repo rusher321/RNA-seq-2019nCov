@@ -1,9 +1,10 @@
-#!/usr/bin/env python
+--cores#!/usr/bin/env python
 import argparse
 import os
 import sys
 import pandas as pd
-from metapi import config
+import config
+#from metapi import config
 
 
 
@@ -11,6 +12,10 @@ workflow_steps = [
     "trimming_fastp",
     "multiqc_fastp",
     "kraken2_bracken",
+    "rmHost",
+    "sortmerna",
+    "kraken2x",
+    "metaphlan2",
     "all"
 ]
 
@@ -63,9 +68,9 @@ def workflow(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog='metapi',
-        usage='metapi [subcommand] [options]',
-        description='metapi, a pipeline to construct a genome catalogue from metagenomics data')
+        prog='RNAseq',
+        usage='RNAseq [subcommand] [options]',
+        description='RNAseq, a pipeline to process RNA data')
     parser.add_argument(
         '-v',
         '--version',
@@ -82,39 +87,41 @@ def main():
     parser_init = subparsers.add_parser(
         'init',
         parents=[parent_parser],
-        prog='metapi init',
-        description='a metagenomics project initialization',
-        help='a metagenomics project initialization')
+        prog='RNAseq init',
+        description='project initialization',
+        help='project initialization')
 
+    parser_workflow = subparsers.add_parser(
+        "workflow",
+        parents=[parent_parser],
+        prog="metapi workflow",
+        description="a workflow on real metagenomics data",
+        help="a workflow on real metagenomics data"
+    )
+    
     parser_init.add_argument(
         '-q', '--queue', default='st.q', help='cluster queue')
     parser_init.add_argument(
         '-p', '--project', default='st.m', help='project id')
     parser_init.add_argument('-s', '--samples', help='raw fastq samples list')
-    parser_init.add_argument(
-        '-b',
-        '--begin',
-        type=str,
-        default='raw',
-        choices=['raw', 'assembly'],
-        help='begin to run pipeline from a specific step')
     parser_init._optionals.title = 'arguments'
     parser_init.set_defaults(func=initialization)
 
-
     parser_workflow.add_argument(
-        '-r',
-        '--rmhost',
-        action='store_true',
-        default=False,
-        help='need to remove host sequence? default: False')
+        "-u",
+        "--step",
+        type=str,
+        choices=workflow_steps,
+        default="checkm",
+        help="run step",
+    )
     parser_workflow._optionals.title = 'arguments'
     parser_workflow.set_defaults(func=workflow)
 
     args = parser.parse_args()
     try:
         if args.version:
-            print("metapi version %s" % __version__)
+            print("RNAseq version %s" % __version__)
             sys.exit(0)
         args.func(args)
     except AttributeError as e:

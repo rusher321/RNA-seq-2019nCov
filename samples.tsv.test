@@ -1,0 +1,3 @@
+id fq1 fq2
+demo1   data_tmp/demo1.1.fq.gz  data_tmp/demo1.2.fq.gz
+demo2   data_tmp/demo2.1.fq.gz  data_tmp/demo2.2.fq.gz

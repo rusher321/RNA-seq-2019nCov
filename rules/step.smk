@@ -49,15 +49,38 @@ bracken_output = expand([
 )
 
 rmhost_output = expand([
-     "{rmhost}/{sample}.rmhost{read}.fq.gz"
+    "{rmhost}/{sample}.rmhost{read}.fq.gz"
     ],
     rmhost = config["results"]["rmhost"],
     sample = _samples.index.unique(),
     read=[".1", ".2"])
+
+sortmerna_output = expand([
+    "{sortmerna}/{sample}/out/{sample}.sortmerna{ID}.fq.gz"
+    ],
+    sortmerna = config["results"]["sortmerna"],
+    sample = _samples.index.unique(),
+    ID=["_fwd", "_rev"])
+
+kraken2x_output = expand([
+    "{kraken2x}/{sample}.kraken2x.output",
+    "{kraken2x}/{sample}.kraken2x.report"
+    ],
+    kraken2x = config["results"]["kraken2x"],
+    sample = _samples.index.unique())
+
+metaphlan2_output = expand(
+    ["{metaphlan2}/bt2out/{sample}.bt2out",
+    "{metaphlan2}/profile/{sample}.profile.txt"],
+    metaphlan2 = config["results"]["metaphlan2"],
+    sample = _samples.index.unique())
 
 all_target = (
     trimming_output+
     rmrRna_output+
     kraken2_output+
     bracken_output+
-    rmhost_output)
+    rmhost_output+
+    sortmerna_output+
+    kraken2x_output+
+    metaphlan2_output)

@@ -1,9 +1,6 @@
 #!/usr/bin/env snakemake
 import sys
-from metapi import sample
-from metapi import summary
-#from metapi import merger
-#from metapi import uploader
+import sample
 
 shell.executable("bash")
 
@@ -21,6 +18,9 @@ include: "rules/trimming.smk"
 include: "rules/rmRna.smk"
 include: "rules/kraken2_bracken.smk"
 include: "rules/rmHost.smk"
+include: "rules/sortmerna.smk"
+include: "rules/kraken2x.smk"
+include: "rules/metaphlan2.smk"
 
 rule all:
 	input:

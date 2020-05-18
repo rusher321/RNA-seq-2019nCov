@@ -35,7 +35,7 @@ params:
   kraken2:
     # database: "/hwfssz5/ST_INFECTION/AntibioticResistance/P18Z10200N0164_Resistance_PN/PMseq/User/liangtianzhu/sortware/karken2/kraken2-2.0.8-beta/db/minikraken2/minikraken2_v1_8GB"
     database: "/ldfssz1/ST_INFECTION/2019-nCoV/liangtianzhu/Braken/braken/kraken2_db_v2/minikraken2_v2_8GB_201904_UPDATE"
-    threads: 8
+    threads: 4
 
   bracken:
     # database: "/hwfssz5/ST_INFECTION/AntibioticResistance/P18Z10200N0164_Resistance_PN/PMseq/User/liangtianzhu/sortware/karken2/kraken2-2.0.8-beta/db/minikraken2/minikraken2_v1_8GB"
@@ -43,8 +43,19 @@ params:
     threshold: 10
 
   rmkrahost:
-    threads: 8
-    
+    threads: 4
+
+  sortmerna:
+    threads: 4
+    ref: "--ref /ldfssz1/ST_META/share/User/zhujiahui/software/sortmerna-4.2.0-Linux/database/silva-bac-16s-id90.fasta --ref /ldfssz1/ST_META/share/User/zhujiahui/software/sortmerna-4.2.0-Linux/database/silva-bac-23s-id98.fasta --ref /ldfssz1/ST_META/share/User/zhujiahui/software/sortmerna-4.2.0-Linux/database/rfam-5s-database-id98.fasta"
+    options: "--fastx --paired_in --out2"
+
+  metaphlan2:
+    threads: 4
+
+  kraken2x:
+    database: "/hwfssz1/ST_META/F16ZQSB1SY2760_PGM_ZHZ/BC_TMP/nCov-test/refseq/kraken2/refseq_pro"
+    threads: 4
 
 results:
     trimming: "results/01.trimming"
@@ -55,10 +66,14 @@ results:
     kraken2: "results/03.kraken2"
     bracken: "results/03.kraken2/bracken"
     rmhost: "results/04.rmkrahost"
+    sortmerna: "results/05.sortmerna"
+    kraken2x: "results/06.kraken2x"
+    metaphlan2: "results/07.metaphlan2"
 
 logs:
     trimming: assay/01.trimming/logs
     rmrRna: assay/02.rmrRna/logs
     kraken2: assay/03.kraken2/logs
-    bracken: assay/03.kraken2/bracken/log
-    rmkrahost: assay/04.kraken2/rmkrahost/log
+    bracken: assay/03.kraken2/bracken/logs
+    rmkrahost: assay/04.kraken2/rmkrahost/logs
+    kraken2x: assay/06.kraken2x/logs

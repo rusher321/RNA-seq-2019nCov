@@ -1,0 +1,5 @@
+__pycache__/
+assay/
+results/
+data_tmp/
+.snakemake/
