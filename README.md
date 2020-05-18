@@ -9,8 +9,11 @@ RNA-seq pipeline
 <div align=center><img width="300" height="600" src="https://github.com/rusher321/RNA-seq-2019nCov/blob/master/pipeline.png"/></div>
  
 ## Requirements:
-python: vXXXX   
-  
+python: 3.6.10
+
+
+
+
 
 Software for This pipeline:  
 * Kraken v1.1 (https://github.com/DerrickWood/kraken)  
