@@ -1,4 +1,4 @@
---cores#!/usr/bin/env python
+#!/usr/bin/env python
 import argparse
 import os
 import sys
@@ -92,11 +92,11 @@ def main():
         help='project initialization')
 
     parser_workflow = subparsers.add_parser(
-        "workflow",
+        "commandline",
         parents=[parent_parser],
-        prog="metapi workflow",
-        description="a workflow on real metagenomics data",
-        help="a workflow on real metagenomics data"
+        prog="main_command_line",
+        description="main command line ",
+        help="print a command line"
     )
     
     parser_init.add_argument(
@@ -114,6 +114,12 @@ def main():
         choices=workflow_steps,
         default="checkm",
         help="run step",
+    )
+
+    parser_workflow.add_argument(
+        "-t",
+        "--threads",
+        help="threads",
     )
     parser_workflow._optionals.title = 'arguments'
     parser_workflow.set_defaults(func=workflow)
