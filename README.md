@@ -42,6 +42,59 @@ Notes: The above dependent software needs to be installed separately according t
 ### 1.Build the index for database
 
 ### 2.Run the pipeline.
+**Input requirements**  
+generate a sample information file like below:  
+| id | fq1           | fq2           |
+|----|---------------|---------------|
+| demo1 | demo1.1.fq.gz    | demo1.2.fq.gz    |
+| demo2 | demo2.1.fq.gz    | demo2.2.fq.gz    |
+  
+The header must be: id fq1 fq2.
 
+**Init**  
+`cd` to your workdir and run:
+```
+python /path/to/git/RNAseq init -d ./ -s samples.tsv 
+```
 
+**After that, in `yourdir` directory, inital files will be generated**  
+```
+ls ./
+  
+assay
+results
+scripts
+sources
+study
+config.yaml
+cluster.yaml
+```
+**generate command line and just run it on local computer**  
+```
+python /path/to/your/git/RNAseq commandline -d ./ -u all
+```
+  
+```
+snakemake --snakefile /path/to/your/git/Snakefile --configfile config.yaml --until all
+```
 
+   
+**Or submit to cluster using qsub**  
+```
+snakemake --snakefile /path/to/git/Snakefile \
+    --configfile ./config.yaml \
+    --cluster-config ./cluster.yaml \
+    --jobs 80 \
+    --cluster "qsub -S /bin/bash -cwd \
+               -q {cluster.queue} \
+               -P {cluster.project} \
+               -l vf={cluster.mem},p={cluster.cores} \
+               -binding linear:{cluster.cores} \
+               -o {cluster.output} \
+               -e {cluster.error}" \
+    --latency-wait 360 \
+    -k \
+    --until all
+```
+       
+   
