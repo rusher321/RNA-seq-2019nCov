@@ -9,14 +9,19 @@ RNA-seq pipeline
 <div align=center><img width="300" height="600" src="https://github.com/rusher321/RNA-seq-2019nCov/blob/master/pipeline.png"/></div>
  
 ## Requirements:
-python: vXXXX   
+python: v3.7.6   
   
 
 Software for This pipeline:
-* fastp 0.20.1 (https://github.com/OpenGene/fastp)
-* Kraken v2 (https://ccb.jhu.edu/software/kraken2/index.shtm)  
-* bwa 0.7.17-r1188 (https://github.com/lh3/bwa)
-* HISAT2 2.1.0(https://ccb.jhu.edu/software/hisat2/index.shtml)
+* [fastp 0.20.1](https://github.com/OpenGene/fastp)
+* [Kraken v2](https://ccb.jhu.edu/software/kraken2/index.shtm)  
+* [bwa 0.7.17-r1188](https://github.com/lh3/bwa)
+* [HISAT2 2.1.0](https://ccb.jhu.edu/software/hisat2/index.shtml)
+* [SorMeRNA 4.2.0](https://github.com/biocore/sortmerna)
+* [Metaphlan2](https://github.com/biobakery/metaphlan)
+
+
+
 
 
 ## Installation
