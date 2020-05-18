@@ -9,7 +9,7 @@ RNA-seq pipeline
 <div align=center><img width="300" height="600" src="https://github.com/rusher321/RNA-seq-2019nCov/blob/master/pipeline.png"/></div>
  
 ## Requirements:
-python: v3.7.6   
+python: v3+   
   
 
 Software for This pipeline:
