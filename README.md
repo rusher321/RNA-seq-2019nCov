@@ -9,18 +9,13 @@ RNA-seq pipeline
 <div align=center><img width="300" height="600" src="https://github.com/rusher321/RNA-seq-2019nCov/blob/master/pipeline.png"/></div>
  
 ## Requirements:
-<<<<<<< HEAD
-python: 3.6.10
 
-
-
-
-=======
 python: v3+   
   
 Software for This pipeline:
 * [fastp 0.20.1](https://github.com/OpenGene/fastp)
-* [Kraken v2](https://ccb.jhu.edu/software/kraken2/index.shtm)  
+* [Kraken v2](https://ccb.jhu.edu/software/kraken2/index.shtm)
+* [bracken 2.5](https://github.com/jenniferlu717/Bracken)
 * [bwa 0.7.17-r1188](https://github.com/lh3/bwa)
 * [HISAT2 2.1.0](https://ccb.jhu.edu/software/hisat2/index.shtml)
 * [SorMeRNA 4.2.0](https://github.com/biocore/sortmerna)
@@ -28,16 +23,30 @@ Software for This pipeline:
 
 
 
-
-
 ## Installation
 ```
 git clone https://github.com/rusher321/RNA-seq-2019nCov.git
 ```
-Notes: The above dependent software needs to be installed separately according to their instructions. After installing, the users should edit the input.config file, and change the software path to your own path.
+Notes: The above dependent software needs to be installed separately according to their instructions. After installing, the users should edit the config.yaml file, and change the software path to your own path.
 
 ## Usage
 ### 1.Build the index for database
+** 1) bulit the human rna index for bwa
+      ```
+      bwa index Human_rRNA_NCBI.fa
+      ```
+** 2) bulit the human genome index  for HISAT2
+      ```
+      hisat2-build index hg19.fa hg19 -p 6
+      ```
+** 3) bulit the kraken2 database index
+      ```
+      kraken-build --build --threads 8 --db ./YourDBpath/
+      ```
+      Here we used the [MiniKraken2_v2_8GB: (5.5GB) 8GB Kraken 2 Database built from the Refseq bacteria, archaea, and viral libraries and the GRCh38 human genome]
+** 4) bulit the kraken2x database index
+** 5) Edit the config.yaml file, and change the database path to your own path
+
 
 ### 2.Run the pipeline.
 **Input requirements**  
