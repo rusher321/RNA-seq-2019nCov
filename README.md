@@ -12,8 +12,12 @@ RNA-seq pipeline
 python: vXXXX   
   
 
-Software for This pipeline:  
-* Kraken v1.1 (https://github.com/DerrickWood/kraken)  
+Software for This pipeline:
+* fastp 0.20.1 (https://github.com/OpenGene/fastp)
+* Kraken v2 (https://ccb.jhu.edu/software/kraken2/index.shtm)  
+* bwa 0.7.17-r1188 (https://github.com/lh3/bwa)
+* HISAT2 2.1.0(https://ccb.jhu.edu/software/hisat2/index.shtml)
+
 
 ## Installation
 ```
