@@ -18,8 +18,6 @@ python: 3.6.10
 =======
 python: v3+   
   
->>>>>>> 76e41892d98a253177af8fb73988a47549f66ccb
-
 Software for This pipeline:
 * [fastp 0.20.1](https://github.com/OpenGene/fastp)
 * [Kraken v2](https://ccb.jhu.edu/software/kraken2/index.shtm)  
