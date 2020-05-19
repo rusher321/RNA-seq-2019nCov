@@ -115,10 +115,10 @@ snakemake --snakefile /path/to/git/Snakefile \
        
 
  
- ## Support & Bug Reports
-----------------------
+## Support & Bug Reports
 
-Please log an issue on (github issue)[https://github.com/rusher321/RNA-seq-2019nCo/issues]
+
+Please log an issue on [github issue](https://github.com/rusher321/RNA-seq-2019nCov/issues)
 
 You can email the  developers directly at `yangfangming@genomics.cn`
  
