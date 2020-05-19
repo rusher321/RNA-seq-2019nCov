@@ -32,19 +32,24 @@ Notes: The above dependent software needs to be installed separately according t
 ## Usage
 ### 1.Build the index for database
 ** 1) bulit the human rna index for bwa
+
       ```
       bwa index Human_rRNA_NCBI.fa
       ```
 ** 2) bulit the human genome index  for HISAT2
+
       ```
       hisat2-build index hg19.fa hg19 -p 6
       ```
 ** 3) bulit the kraken2 database index
+
       ```
       kraken-build --build --threads 8 --db ./YourDBpath/
       ```
       Here we used the [MiniKraken2_v2_8GB: (5.5GB) 8GB Kraken 2 Database built from the Refseq bacteria, archaea, and viral libraries and the GRCh38 human genome]
+      
 ** 4) bulit the kraken2x database index
+
 ** 5) Edit the config.yaml file, and change the database path to your own path
 
 
