@@ -48,7 +48,7 @@ Notes: The above dependent software needs to be installed separately according t
       # add the HCoV-19 genome to the database 
       kraken2-build --add-to-library HCoV-19.fa --db  ./YourDBpath/
 ```
-      Here we used the **MiniKraken2_v2_8GB: (5.5GB) 8GB Kraken 2 Database built from the Refseq bacteria, archaea, and viral libraries and the GRCh38 human genome**
+Here we used the **MiniKraken2_v2_8GB: (5.5GB) 8GB Kraken 2 Database built from the Refseq bacteria, archaea, and viral libraries and the GRCh38 human genome**
       
 4) bulit the kraken2x database index
 ```
