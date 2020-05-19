@@ -113,13 +113,23 @@ snakemake --snakefile /path/to/git/Snakefile \
     --until all
 ```
        
- ## Contributors
+
+ 
+ ## Support & Bug Reports
+----------------------
+
+Please log an issue on (github issue)[https://github.com/rusher321/RNA-seq-2019nCo/issues]
+
+You can email the  developers directly at `yangfangming@genomics.cn`
+ 
+## Contributors
 
 - Huahui Ren 
 - Zhun Shi
 
 Thanks the support from **Jie Zhu - @alienzj**, **Jiahui Zhu**, **Fangming Yang**.
- 
- 
- 
+
+# License
+
+Released under the MIT license.
  
