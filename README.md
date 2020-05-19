@@ -14,7 +14,7 @@ python: v3+
   
 Software for This pipeline:
 * [fastp 0.20.1](https://github.com/OpenGene/fastp)
-* [Kraken v2](https://ccb.jhu.edu/software/kraken2/index.shtm)
+* [Kraken v2](https://ccb.jhu.edu/software/kraken2/index.shtml)
 * [bracken 2.5](https://github.com/jenniferlu717/Bracken)
 * [bwa 0.7.17-r1188](https://github.com/lh3/bwa)
 * [HISAT2 2.1.0](https://ccb.jhu.edu/software/hisat2/index.shtml)
