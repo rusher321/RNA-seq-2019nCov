@@ -31,13 +31,12 @@ Notes: The above dependent software needs to be installed separately according t
 
 ## Usage
 ### 1.Build the index for database
-**1) bulit the human rna index for bwa
-
-      ```
+1) bulit the human rna index for bwa
+```
       bwa index Human_rRNA_NCBI.fa
-      ```
+```
       
-**2) bulit the human genome index  for HISAT2
+2) bulit the human genome index  for HISAT2
 
       ```
       hisat2-build index hg19.fa hg19 -p 6
