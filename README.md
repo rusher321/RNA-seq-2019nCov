@@ -123,10 +123,10 @@ Please log an issue on [github issue](https://github.com/rusher321/RNA-seq-2019n
  
 ## Contributors
 
-- Huahui Ren 
-- Zhun Shi
+- Huahui Ren -@rusher
+- Zhun Shi -@zhunshi
 
-Thanks the support from **Jie Zhu - @alienzj**, **Jiahui Zhu**, **Fangming Yang**.
+Thanks the support from **Jie Zhu - @alienzj**, **Jiahui Zhu - @magcurly**, **Fangming Yang**.
 
 # License
 
