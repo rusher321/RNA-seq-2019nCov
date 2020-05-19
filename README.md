@@ -37,21 +37,24 @@ Notes: The above dependent software needs to be installed separately according t
 ```
       
 2) bulit the human genome index  for HISAT2
-
-      ```
+```
       hisat2-build index hg19.fa hg19 -p 6
-      ```
-**3) bulit the kraken2 database index
-
-      ```
+```
+3) bulit the kraken2 database index
+```
       kraken-build --build --threads 8 --db ./YourDBpath/
-      ```
+      # add the human genome to the database 
+      kraken2-build --add-to-library hg38.fa --db  ./YourDBpath/
+      # add the HCoV-19 genome to the database 
+      kraken2-build --add-to-library HCoV-19.fa --db  ./YourDBpath/
+```
+      Here we used the **MiniKraken2_v2_8GB: (5.5GB) 8GB Kraken 2 Database built from the Refseq bacteria, archaea, and viral libraries and the GRCh38 human genome**
       
-      Here we used the [MiniKraken2_v2_8GB: (5.5GB) 8GB Kraken 2 Database built from the Refseq bacteria, archaea, and viral libraries and the GRCh38 human genome]
-      
-**4) bulit the kraken2x database index
-
-**5) Edit the config.yaml file, and change the database path to your own path
+4) bulit the kraken2x database index
+```
+     kraken2-build --build --protein --db $DBNAME
+```
+5) Edit the config.yaml file, and change the database path to your own path
 
 
 ### 2.Run the pipeline.
@@ -110,4 +113,12 @@ snakemake --snakefile /path/to/git/Snakefile \
     --until all
 ```
        
-   
+ ## Contributors
+
+- Huahui Ren 
+- Zhun Shi
+Thanks the support from **Jie Zhu - @alienzj**, **Jiahui Zhu**, **Fangming Yang**.
+ 
+ 
+ 
+ 
